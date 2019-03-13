@@ -61,16 +61,22 @@ RSpec.describe Request, type: :model do
     expect(request.errors[:phone]).to include("has already been taken")
   end
 
-  it "is invalid with a long biography" do
-    user = FactoryGirl.build(:request, biography: "Hello, my name is John Doe. I'm very very talkative and being synthetical is really not my thing. In fact, I created this request to have the fantastic opportunity to talk, talk and talk to a lot of people. Talking in a coworking space might seem akward but missing the chance to meet fantastic people is a shame... Feel free to tell me to shut it up if you don't want to be disturb and work. But you'd miss a chance to talk to me haha. Appart from being talkative I'm a conference speaker and a story teller. Did I tell you my name? It's John!")
-    user.valid?
-    expect(user.errors[:biography]).to include("is too long (maximum is 500 characters)")
+  it 'is invalid with a long biography' do
+    request = FactoryGirl.build(:request, biography: "Hello, my name is John Doe. I'm very very talkative and being synthetical is really not my thing. In fact, I created this request to have the fantastic opportunity to talk, talk and talk to a lot of people. Talking in a coworking space might seem akward but missing the chance to meet fantastic people is a shame... Feel free to tell me to shut it up if you don't want to be disturb and work. But you'd miss a chance to talk to me haha. Appart from being talkative I'm a conference speaker and a story teller. Did I tell you my name? It's John!")
+    request.valid?
+    expect(request.errors[:biography]).to include('is too long (maximum is 500 characters)')
   end
 
-  it "is invalid with a non permitted state" do
-    user = FactoryGirl.build(:request, state: "unknown")
-    user.valid?
-    expect(user.errors[:state]).to include("unknown is not a valid state")
+  it 'is invalid with a non permitted state' do
+    request = FactoryGirl.build(:request, state: 'unknown')
+    request.valid?
+    expect(request.errors[:state]).to include('unknown is not a valid state')
+  end
+
+  it "changes request's state to 'accepted'" do
+    request = FactoryGirl.build(:request, state: 'confirmed')
+    request.accept!
+    expect(request.state).to eq('accepted')
   end
 
 end

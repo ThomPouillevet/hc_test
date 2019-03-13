@@ -7,4 +7,15 @@ class Request < ApplicationRecord
     in: %w(unconfirmed confirmed accepted expired),
     message: "%{value} is not a valid state"
   }
+
+
+  scope :unconfirmed, -> { where(state: 'unconfirmed') }
+  scope :confirmed, -> { where(state: 'confirmed') }
+  scope :accepted, -> { where(state: 'accepted') }
+  scope :expired, -> { where(state: 'expired') }
+
+  def accept!
+    self.state = 'accepted'
+  end
+
 end
