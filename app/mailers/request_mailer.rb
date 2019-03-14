@@ -1,5 +1,5 @@
 class RequestMailer < ActionMailer::Base
-  default from: "frenchcoworkingspace@gmail.com"
+  default from: "no-reply@example.org"
 
   def registration_confirmation(request)
     @request = request
