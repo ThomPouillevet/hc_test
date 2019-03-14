@@ -1,1 +1,78 @@
-// Specific CSS for your home-page
+// BANNER
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0;
+  min-height: 100vh;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 55px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 30px;
+  color: white;
+  opacity: .9;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-container {
+  max-width: 600px;
+
+}
+
+.form-container {
+  width: 60%;
+}
+
+.form-wrapper {
+  background-color: white;
+  padding: 40px;
+  width: 70%;
+  margin: 0px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px hsla(0, 0%, 0%, .1);
+
+
+  label {
+    color: rgb(75, 83, 107);
+    font-weight: 700;
+  }
+
+  .btn {
+    margin: 10px 0 0px 0;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    border: none;
+    background-color: rgb(75, 83, 107);
+    width: 100%;
+  }
+}
+
+// .home-content {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center
+// }
+
+
+// .image-container {
+//   background-image: url('shape.svg');
+//   height: 50vh;
+// }
+
+// .coworking-img img {
+//   width: 50vh;
+// }
