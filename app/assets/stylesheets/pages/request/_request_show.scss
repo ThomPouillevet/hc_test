@@ -1,0 +1,26 @@
+.message-wrapper {
+  background-color: white;
+  padding: 40px;
+  width: 50%;
+  margin: 0px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px hsla(0, 0%, 0%, .1);
+
+  h1 {
+    margin: 0;
+    padding-bottom: 20px;
+    color: rgb(41, 41, 41);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 15;
+    color: rgb(41, 41, 41);
+    opacity: .9;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin: 0;
+  }
+
+}

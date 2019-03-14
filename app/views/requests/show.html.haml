@@ -1,4 +1,9 @@
-- if @request.email_confirmed == true
-  %h1= "Hi #{@request.name}. Your email is confirmed, you are on the waiting list."
-- else
-  %h1= "Congrats for the request #{@request.name}. Please check your mail in order to confirm your email address and add your request to our waiting list."
+.banner{:style => "background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);"}
+  .container
+    .message-wrapper
+      - if @request.email_confirmed == true
+        %h1.text-center= "Hi #{@request.name} !"
+        %p.text-center= "Your email is confirmed, you are on the waiting list."
+      - else
+        %h1.text-center= "Congrats for the request #{@request.name}."
+        %p.text-center= "Please check your mail in order to confirm your email address and add your request to our waiting list."
