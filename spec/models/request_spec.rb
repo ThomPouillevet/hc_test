@@ -6,27 +6,27 @@ RSpec.describe Request, type: :model do
   end
 
   it "is invalid without a name" do
-    user = FactoryGirl.build(:request, name: nil)
-    user.valid?
-    expect(user.errors[:name]).to include("can't be blank")
+    request = FactoryGirl.build(:request, name: nil)
+    request.valid?
+    expect(request.errors[:name]).to include("can't be blank")
   end
 
   it "is invalid without an email address" do
-    user = FactoryGirl.build(:request, email: nil)
-    user.valid?
-    expect(user.errors[:email]).to include("can't be blank")
+    request = FactoryGirl.build(:request, email: nil)
+    request.valid?
+    expect(request.errors[:email]).to include("can't be blank")
   end
 
   it "is invalid without a valid email address" do
-    user = FactoryGirl.build(:request, email: "mymail@")
-    user.valid?
-    expect(user.errors[:email]).to include("is invalid")
+    request = FactoryGirl.build(:request, email: "mymail@")
+    request.valid?
+    expect(request.errors[:email]).to include("is invalid")
   end
 
   it "is invalid if email address contains spaces" do
-    user = FactoryGirl.build(:request, email: "email_with_space@gmail.com ")
-    user.valid?
-    expect(user.errors[:email]).to include("is invalid")
+    request = FactoryGirl.build(:request, email: "email_with_space@gmail.com ")
+    request.valid?
+    expect(request.errors[:email]).to include("is invalid")
   end
 
   it "is invalid with a duplicate email address" do
@@ -37,21 +37,21 @@ RSpec.describe Request, type: :model do
   end
 
   it "is invalid without an phone number" do
-    user = FactoryGirl.build(:request, phone: nil)
-    user.valid?
-    expect(user.errors[:phone]).to include("can't be blank")
+    request = FactoryGirl.build(:request, phone: nil)
+    request.valid?
+    expect(request.errors[:phone]).to include("can't be blank")
   end
 
   it "is invalid without a valid phone number" do
-    user = FactoryGirl.build(:request, phone: "049382")
-    user.valid?
-    expect(user.errors[:phone]).to include("is invalid")
+    request = FactoryGirl.build(:request, phone: "049382")
+    request.valid?
+    expect(request.errors[:phone]).to include("is invalid")
   end
 
   it "is invalid if phone number contain spaces" do
-    user = FactoryGirl.build(:request, phone: "0478967564 ")
-    user.valid?
-    expect(user.errors[:phone]).to include("is invalid")
+    request = FactoryGirl.build(:request, phone: "0478967564 ")
+    request.valid?
+    expect(request.errors[:phone]).to include("is invalid")
   end
 
   it "is invalid with a duplicate phone number" do

@@ -1,1 +1,4 @@
-%h1= "Congrats for the request #{@request.name}. Please check your mail in order to confirm your email address and add your request to our waiting list."
+- if @request.email_confirmed == true
+  %h1= "Hi #{@request.name}. Your email is confirmed, you are on the waiting list."
+- else
+  %h1= "Congrats for the request #{@request.name}. Please check your mail in order to confirm your email address and add your request to our waiting list."
