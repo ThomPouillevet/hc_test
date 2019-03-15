@@ -7,21 +7,6 @@
   min-height: 100vh;
 }
 
-.title-container h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  font-size: 55px;
-  font-weight: bold;
-}
-
-.title-container p {
-  font-size: 30px;
-  color: white;
-  opacity: .9;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
 .banner-container {
   display: flex;
   align-items: center;
@@ -29,12 +14,25 @@
 }
 
 .title-container {
-  max-width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-}
+  h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    font-size: 55px;
+    font-weight: bold;
+  }
 
-.form-container {
-  width: 60%;
+  p {
+    font-size: 30px;
+    color: white;
+    opacity: .9;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .form-wrapper {
@@ -44,7 +42,6 @@
   margin: 0px auto;
   border-radius: 10px;
   box-shadow: 0 4px 6px hsla(0, 0%, 0%, .1);
-
 
   label {
     color: rgb(75, 83, 107);
@@ -61,18 +58,50 @@
   }
 }
 
-// .home-content {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center
-// }
+@media all and (max-width: 1100px) {
+  .form-wrapper {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 770px) {
+  .form-wrapper {
+    margin-top: 40px;
+  }
+}
 
 
-// .image-container {
-//   background-image: url('shape.svg');
-//   height: 50vh;
-// }
+// WHY US
+.why-us-container {
+  padding: 70px 0;
 
-// .coworking-img img {
-//   width: 50vh;
-// }
+  h1 {
+    color: #4B536B;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: bolder;
+    margin-bottom: 35px;
+  }
+}
+
+.why-us-1,
+.why-us-2,
+.why-us-3 {
+  img {
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 25px;
+    color: #4B536B;
+  }
+
+  p {
+    color: #4B536B;
+    font-weight: lighter;
+    letter-spacing: 1px;
+  }
+}

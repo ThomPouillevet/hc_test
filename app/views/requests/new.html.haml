@@ -1,18 +1,49 @@
 .banner{:style => "background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);"}
-  .container.banner-container
-    .title-container
-      %h1 A new coworking space in Paris!
-      %p Limited capacity, first to join, first welcome!
-    .form-container
-      .form-wrapper
-        = simple_form_for @request do |f|
-          = f.error_notification
-          = f.input :name
-          = f.input :email, input_html: { autocomplete: 'email' }
-          = f.input :phone
-          = f.input :biography
-          = f.input :state, :as => :hidden, :input_html => { :value => "unconfirmed" }
-          = f.button :submit, 'Join the waiting list',class: "btn-primary"
+  -# .container.banner-container
+  .container
+    .row
+      .col-xs-12.col-md-6
+        .title-container
+          %h1 A new coworking space in Paris!
+          %p Only 300€/month, limited capacity, first to join, first welcome!
+      .col-xs-12.col-md-6
+        .form-container
+          .form-wrapper
+            = simple_form_for @request do |f|
+              = f.error_notification
+              = f.input :name
+              = f.input :email, input_html: { autocomplete: 'email' }
+              = f.input :phone
+              = f.input :biography
+              = f.input :state, :as => :hidden, :input_html => { :value => "unconfirmed" }
+              = f.button :submit, 'Join the waiting list',class: "btn-primary"
+.container.why-us-container
+  %h1.text-center What we offer
+  .row
+    .col-xs-12.col-md-4
+      .why-us-1
+        =image_tag("why-us-1.png")
+        %h2.text-center Open 24/7
+        %p.text-center
+          Work when you feel productive.
+          %br
+          At 2am on Sunday? Only sky is the limit!
+    .col-xs-12.col-md-4
+      .why-us-2
+        =image_tag("why-us-2.png")
+        %h2.text-center Unlimited snacks & Coffee
+        %p.text-center
+          Healthy local snacks and caffeine
+          %br
+          will fresh up your mind to get it done!
+    .col-xs-12.col-md-4
+      .why-us-3
+        =image_tag("why-us-3.png")
+        %h2.text-center We value community
+        %p.text-center
+          Weekly events to network & have fun.
+          %br
+          Don't be shy!
 
 
 
