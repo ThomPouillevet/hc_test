@@ -11,12 +11,14 @@
           .form-wrapper
             = simple_form_for @request do |f|
               = f.error_notification
-              = f.input :name
-              = f.input :email, input_html: { autocomplete: 'email' }
-              = f.input :phone
-              = f.input :biography
+              = f.input :name, placeholder: 'Peter Radnor'
+              = f.input :email, input_html: { autocomplete: 'email' }, placeholder: 'peter.radnor@example.com'
+              = f.input :phone, placeholder: '0612467897'
+              = f.input :biography, placeholder: "28 yo american freelance webdesigner. Learning French and Python."
               = f.input :state, :as => :hidden, :input_html => { :value => "unconfirmed" }
-              = f.button :submit, 'Join the waiting list',class: "btn-primary"
+              = f.button :submit, "Join the waiting list", class: "btn-primary"
+
+
 .container.why-us-container
   %h1.text-center What we offer
   .row
