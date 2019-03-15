@@ -6,21 +6,45 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px hsla(0, 0%, 0%, .1);
 
-  h1 {
+  h2 {
     margin: 0;
-    padding-bottom: 20px;
-    color: rgb(41, 41, 41);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-    font-size: 30px;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 25px;
+    color: #4B536B;
   }
 
   p {
     font-size: 15;
-    color: rgb(41, 41, 41);
     opacity: .9;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     margin: 0;
+    color: #4B536B;
+    font-weight: lighter;
+    letter-spacing: 1px;
   }
 
+  img {
+    width: 100%;
+    margin: 0px auto;
+    display: block;
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .message-wrapper {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 770px) {
+  .message-wrapper {
+    width: 85%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .message-wrapper {
+    width: 95%;
+  }
 }

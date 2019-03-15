@@ -2,8 +2,17 @@
   .container
     .message-wrapper
       - if @request.email_confirmed == true
-        %h1.text-center= "Hi #{@request.name} !"
-        %p.text-center= "Your email is confirmed, you are on the waiting list."
+        %h2.text-center= "Hi #{@request.name} !"
+        =image_tag("in-mailing-list.png")
+        %p.text-center
+          Your email is confirmed, you are on the waiting list.
+          %br
+          We'll email you to update you when you'll be accepted.
+          %br
+          %br
+          ="All request on waiting list should be confirmed every 3 months (we'll email you)."
+
       - else
-        %h1.text-center= "Congrats for the request #{@request.name}."
-        %p.text-center= "Please check your mail in order to confirm your email address and add your request to our waiting list."
+        %h2.text-center= "Congrats for the request #{@request.name}."
+        =image_tag("confirm-email.png")
+        %p.text-center= "Please check your mail in order to confirm your email address so we can add you on our waiting list."
