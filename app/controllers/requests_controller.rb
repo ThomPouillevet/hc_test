@@ -27,11 +27,23 @@ class RequestsController < ApplicationController
     if request
       request.validate_email
       request.save(validate: false)
+      RequestMailer.waiting_list_confirmation(request).deliver_later(wait: 2.minute)
       redirect_to request
     else
       flash[:error] = "Sorry. request does not exist"
       redirect_to root_url
     end
+  end
+
+  def confirm_interest
+    request = Request.find(params[:id])
+      if request
+        request.update_date_of_interest_confirmation
+        redirect_to request
+      else
+        flash[:error] = "Sorry. request does not exist"
+        redirect_to root_url
+      end
   end
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_16_135058) do
+ActiveRecord::Schema.define(version: 2019_03_16_175545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_03_16_135058) do
     t.boolean "email_confirmed", default: false
     t.string "confirm_token"
     t.integer "position"
+    t.datetime "date_of_interest_confirmation"
   end
 
 end

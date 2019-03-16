@@ -39,4 +39,8 @@ class Request < ApplicationRecord
       self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
   end
+
+  def update_date_of_interest_confirmation
+    self.update(date_of_interest_confirmation: Time.now)
+  end
 end

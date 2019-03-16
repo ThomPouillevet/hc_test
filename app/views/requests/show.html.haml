@@ -4,13 +4,19 @@
       - if @request.email_confirmed == true
         %h2.text-center= "Hi #{@request.name} !"
         =image_tag("in-mailing-list.png")
-        %p.text-center
-          Your email is confirmed, you are on the waiting list.
-          %br
-          We'll email you when you'll be accepted.
-          %br
-          %br
-          ="All request on waiting list should be confirmed every 3 months (we'll email you if necessary)."
+        - if @request.date_of_interest_confirmation.present?
+          %p.text-center
+            Thanks for this confirmation!
+            %br
+            We'll email you when you'll be accepted.
+        - else
+          %p.text-center
+            Your email is confirmed, you are on the waiting list.
+            %br
+            We'll email you when you'll be accepted.
+            %br
+            %br
+            ="All request on waiting list should be confirmed every 3 months (we'll email you if necessary)."
 
       - else
         %h2.text-center= "Congrats for the request #{@request.name}."
