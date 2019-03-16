@@ -14,6 +14,10 @@ class Request < ApplicationRecord
   scope :accepted, -> { where(state: 'accepted') }
   scope :expired, -> { where(state: 'expired') }
 
+  def in_waiting_list?
+    self.state == 'confirmed' ? true : false
+  end
+
   def accept!
     self.state = 'accepted'
     self.save(validate: false)

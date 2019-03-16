@@ -79,4 +79,20 @@ RSpec.describe Request, type: :model do
     expect(request.state).to eq('accepted')
   end
 
+  it "changes request's state to 'expired'" do
+    request = FactoryGirl.build(:request, state: 'confirmed')
+    request.refuse!
+    expect(request.state).to eq('expired')
+  end
+
+  it "checks if request's is in waiting list" do
+    request = FactoryGirl.build(:request, state: 'confirmed')
+    expect(request.in_waiting_list?).to eq(true)
+  end
+
+  it "checks if request's is not in waiting list" do
+    request = FactoryGirl.build(:request, state: 'accepted')
+    expect(request.in_waiting_list?).to eq(false)
+  end
+
 end
