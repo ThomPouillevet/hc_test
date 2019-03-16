@@ -4,8 +4,14 @@ class RequestMailerPreview < ActionMailer::Preview
     request = Request.first
     RequestMailer.registration_confirmation(request)
   end
+
   def waiting_list_confirmation
     request = Request.first
     RequestMailer.waiting_list_confirmation(request)
+  end
+
+  def request_accepted
+    request = Request.first
+    RequestMailer.request_accepted(request)
   end
 end

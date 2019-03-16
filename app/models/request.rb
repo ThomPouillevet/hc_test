@@ -18,11 +18,20 @@ class Request < ApplicationRecord
     self.state = 'accepted'
     self.save(validate: false)
     update_list_positions
+    RequestMailer.request_accepted(self).deliver_now
   end
 
-  def update_list_positions
+  def refuse!
+    self.state = 'expired'
+    self.save(validate: false)
+    update_list_positions(self.position)
+  end
+
+  def update_list_positions(position_of_outgoing_request = 1)
     Request.confirmed.each do |request|
-      request.update(position: request.position - 1)
+      if request.position > position_of_outgoing_request
+        request.update(position: request.position - 1)
+      end
     end
   end
 

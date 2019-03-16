@@ -13,4 +13,9 @@ class RequestMailer < ActionMailer::Base
       ConfirmInterestJob.set(wait: 2.minute).perform_later(request.id)
     end
   end
+
+    def request_accepted(request)
+      @request = request
+      mail(to: @request.email, subject: "French Coworking Space : Welcome among us!")
+    end
 end
