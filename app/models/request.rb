@@ -21,9 +21,8 @@ class Request < ApplicationRecord
   end
 
   def update_list_positions
-      Request.confirmed.each do |request|
-        request.update(position: request.position - 1)
-      end
+    Request.confirmed.each do |request|
+      request.update(position: request.position - 1)
     end
   end
 
