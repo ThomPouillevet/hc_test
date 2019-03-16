@@ -10,16 +10,27 @@ class Request < ApplicationRecord
 
 
   scope :unconfirmed, -> { where(state: 'unconfirmed') }
-  scope :confirmed, -> { where(state: 'confirmed') }
+  scope :confirmed, -> { where(state: 'confirmed').order(:position) }
   scope :accepted, -> { where(state: 'accepted') }
   scope :expired, -> { where(state: 'expired') }
 
   def accept!
     self.state = 'accepted'
+    self.save(validate: false)
+    update_list_positions
+  end
+
+  def update_list_positions
+      Request.confirmed.each do |request|
+        request.update(position: request.position - 1)
+      end
+    end
   end
 
   def validate_email
     self.state = 'confirmed'
+    self.save(validate: false)
+    self.position = Request.confirmed.count
     self.email_confirmed = true
     self.confirm_token = nil
   end
