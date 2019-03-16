@@ -3,13 +3,20 @@
     .message-wrapper
       - if @request.email_confirmed == true
         %h2.text-center= "Hi #{@request.name} !"
-        =image_tag("in-mailing-list.png")
-        - if @request.date_of_interest_confirmation.present?
+        - if @request.state == 'accepted'
+          =image_tag("accepted.png")
+          %p.text-center
+            You are a member of our community!
+            %br
+            We'll reach you to process the payment and give all details needed to start working here.
+        - elsif @request.date_of_interest_confirmation.present?
+          =image_tag("confirmation-of-interest.png")
           %p.text-center
             Thanks for this confirmation!
             %br
             We'll email you when you'll be accepted.
         - else
+          =image_tag("in-waiting-list.png")
           %p.text-center
             Your email is confirmed, you are on the waiting list.
             %br
