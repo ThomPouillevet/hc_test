@@ -27,7 +27,7 @@ class RequestsController < ApplicationController
     if request
       request.validate_email
       request.save(validate: false)
-      RequestMailer.waiting_list_confirmation(request).deliver_later(wait: 2.minute)
+      RequestMailer.waiting_list_confirmation(request).deliver_later(wait: 3.month)
       redirect_to request
     else
       flash[:error] = "Sorry. request does not exist"

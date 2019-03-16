@@ -8,9 +8,9 @@ class RequestMailer < ActionMailer::Base
 
   def waiting_list_confirmation(request)
     @request = request
-    if @request.state == 'confirmed'
+    if @request.in_waiting_list?
       mail(to: @request.email, subject: "French Coworking Space : Confirm your interest and save your spot in the waiting list")
-      ConfirmInterestJob.set(wait: 2.minute).perform_later(request.id)
+      ConfirmInterestJob.set(wait: 1.week).perform_later(request.id)
     end
   end
 

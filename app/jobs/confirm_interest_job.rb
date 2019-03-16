@@ -4,10 +4,10 @@ class ConfirmInterestJob < ApplicationJob
   def perform(request_id)
     request = Request.find(request_id)
     date = request.date_of_interest_confirmation
-    if date == nil || date < 5.minute.ago
+    if request.in_waiting_list? && (date == nil || date < 3.month.ago)
       request.refused!
-    else
-      RequestMailer.waiting_list_confirmation(request).deliver_later(wait: 2.second)
+    elsif request.in_waiting_list?
+      RequestMailer.waiting_list_confirmation(request).deliver_later(wait: 3.month)
     end
   end
 
