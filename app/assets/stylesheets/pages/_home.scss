@@ -30,7 +30,7 @@
   p {
     font-size: 30px;
     color: white;
-    opacity: .9;
+    opacity: 0.9;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   }
 }
@@ -41,7 +41,7 @@
   width: 70%;
   margin: 0px auto;
   border-radius: 10px;
-  box-shadow: 0 4px 6px hsla(0, 0%, 0%, .1);
+  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.1);
 
   label {
     color: rgb(75, 83, 107);
@@ -70,13 +70,12 @@
   }
 }
 
-
 // WHY US
 .why-us-container {
   padding: 70px 0;
 
   h1 {
-    color: #4B536B;
+    color: #4b536b;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: bolder;
@@ -96,12 +95,37 @@
   h2 {
     font-weight: 700;
     font-size: 25px;
-    color: #4B536B;
+    color: #4b536b;
   }
 
   p {
-    color: #4B536B;
+    color: #4b536b;
     font-weight: lighter;
     letter-spacing: 1px;
+  }
+}
+
+// HOME FOOTER
+
+.footer {
+  background: #f4f4f4;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0, 0, 0, 0.3);
+  a {
+    color: black;
+    opacity: 0.15;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0px 10px;
+    display: block;
+    margin: 0 auto;
+  }
+  a:hover {
+    opacity: 1;
+  }
+  p {
+    font-size: 13px;
+    margin: 0;
   }
 }
