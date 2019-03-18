@@ -5,8 +5,10 @@
 %p{:style => "text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15; opacity: .9; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); margin: 0; color: #4B536B; font-weight: lighter; letter-spacing: 1px;"}
   Thanks for registering! To confirm your registration click the button below.
   %br
-
-  =link_to "confirm", confirm_email_url(@request.confirm_token, host: "https://french-coworking-space.herokuapp.com"), {:style=>'background-color: #4b536b; text-decoration: none; color: white; margin: 30px auto 0px auto; display: block; width: max-content; padding: 10px 20px; border-radius: 4px;'}
+  - if Rails.env.development?
+    =link_to "confirm", confirm_email_url(@request.confirm_token, host: "localhost:3000"), {:style=>'background-color: #4b536b; text-decoration: none; color: white; margin: 30px auto 0px auto; display: block; width: max-content; padding: 10px 20px; border-radius: 4px;'}
+  - else
+    =link_to "confirm", confirm_email_url(@request.confirm_token, host: "https://french-coworking-space.herokuapp.com"), {:style=>'background-color: #4b536b; text-decoration: none; color: white; margin: 30px auto 0px auto; display: block; width: max-content; padding: 10px 20px; border-radius: 4px;'}
 
   %br
   %br

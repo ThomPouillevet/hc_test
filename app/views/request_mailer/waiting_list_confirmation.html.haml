@@ -6,7 +6,10 @@
   You only have #{@request.position - 1} persons ahead of you in the waiting list. We need you to confirm that you are still interested within the next week or your request will expire.
   %br
 
-  =link_to "confirm", confirm_interest_url(@request.id, host: "https://french-coworking-space.herokuapp.com"), {:style=>'background-color: #4b536b; text-decoration: none; color: white; margin: 30px auto 0px auto; display: block; width: max-content; padding: 10px 20px; border-radius: 4px;'}
+  - if Rails.env.development?
+    =link_to "confirm", confirm_interest_url(@request.id, host: "localhost:3000"), {:style=>'background-color: #4b536b; text-decoration: none; color: white; margin: 30px auto 0px auto; display: block; width: max-content; padding: 10px 20px; border-radius: 4px;'}
+  - else
+    =link_to "confirm", confirm_interest_url(@request.id, host: "https://french-coworking-space.herokuapp.com"), {:style=>'background-color: #4b536b; text-decoration: none; color: white; margin: 30px auto 0px auto; display: block; width: max-content; padding: 10px 20px; border-radius: 4px;'}
 
   %br
   %br
